@@ -56,7 +56,7 @@ Verify booting LenovoX1
 Verify booting RiscV Polarfire
     [Documentation]    Restart RiscV by power and verify init service is running using serial connection
     [Tags]             relayboot  plug  riscv
-    Reboot Device
+    Reboot Device Via Relay
     Sleep   60    # immediate attempt to connect via the serial port may interrupt the normal startup of the Ghaf system
     Check Serial Connection
     IF    ${IS_AVAILABLE} == False
