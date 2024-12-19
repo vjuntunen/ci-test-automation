@@ -20,7 +20,7 @@ Open Serial Port
     ...        timeout=${timeout}
 
 Open Relay Serial Port
-    [Arguments]    ${serialr_port}    ${timeout}=1.0    ${baudrate}=115200
+    [Arguments]    ${serialr_port}    ${timeout}=1.0    ${baudrate}=9600
     Add Port   ${serialr_port}
     ...        baudrate=${baudrate}
     ...        bytesize=8
@@ -30,12 +30,12 @@ Open Relay Serial Port
 
 Turn Relay Off
     [Documentation]   Turn given ${relay_number} relay off.
-    [Arguments]    ${relay_number}
+    # [Arguments]    ${relay_number}
     Write Data    \xFF\x01\x00    encoding=latin1
 
 Turn Relay On
     [Documentation]   Turn given ${relay_number} relay on.
-    [Arguments]    ${relay_number}
+    # [Arguments]    ${relay_number}
     Write Data    \xFF\x01\x01    encoding=latin1
 
 Check Serial Connection

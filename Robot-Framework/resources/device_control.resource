@@ -21,7 +21,7 @@ Reboot Device
 Reboot Device Via Relay
     [Arguments]       ${delay}=5
     [Documentation]   Turn off power of device, wait for given amount of seconds and turn on the power
-    Open Relay Serial Port
+    Open Relay Serial Port    /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A10KYI3B-if00-port0
     Log To Console    ${\n}Turning device off...
     Turn Relay Off
     Sleep    ${delay}
