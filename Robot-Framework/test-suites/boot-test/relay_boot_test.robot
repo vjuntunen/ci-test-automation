@@ -9,6 +9,7 @@ Resource            ../../resources/ssh_keywords.resource
 Resource            ../../resources/device_control.resource
 Resource            ../../config/variables.robot
 Resource            ../../resources/common_keywords.resource
+Suite Teardown      Teardown
 
 
 *** Variables ***
@@ -35,7 +36,6 @@ Verify booting after restart by power
     ELSE IF  "${CONNECTION_TYPE}" == "serial"
         Verify init.scope status via serial
     END
-    [Teardown]   Teardown
 
 Verify booting LenovoX1
     [Documentation]    Restart LenovoX1 by power and verify init service is running
@@ -51,8 +51,6 @@ Verify booting LenovoX1
     Connect
     Verify service status   service=init.scope
 
-    [Teardown]   Teardown
-
 Verify booting RiscV Polarfire
     [Documentation]    Restart RiscV by power and verify init service is running using serial connection
     [Tags]             relayboot  plug  riscv
@@ -65,7 +63,6 @@ Verify booting RiscV Polarfire
         Log To Console  The device started
     END
     Verify init.scope status via serial
-    [Teardown]   Teardown
 
 Turn OFF Device
     [Documentation]   Turn off device

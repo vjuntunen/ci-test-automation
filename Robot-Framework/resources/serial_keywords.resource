@@ -30,13 +30,13 @@ Open Relay Serial Port
 
 Turn Relay Off
     [Documentation]   Turn given ${relay_number} relay off.
-    # [Arguments]    ${relay_number}
-    Write Data    \xFF\x01\x00    encoding=latin1
+    [Arguments]    ${relay_number}
+    Write Data    \xFF\x0${relay_number}\x00    encoding=latin1
 
 Turn Relay On
     [Documentation]   Turn given ${relay_number} relay on.
-    # [Arguments]    ${relay_number}
-    Write Data    \xFF\x01\x01    encoding=latin1
+    [Arguments]    ${relay_number}
+    Write Data    \xFF\x0${relay_number}\x01    encoding=latin1
 
 Check Serial Connection
     [Documentation]    Check if device is available by serial
