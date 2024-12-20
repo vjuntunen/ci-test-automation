@@ -36,6 +36,7 @@ Verify booting after restart by power
     ELSE IF  "${CONNECTION_TYPE}" == "serial"
         Verify init.scope status via serial
     END
+    [Teardown]   Test Teardown
 
 Verify booting LenovoX1
     [Documentation]    Restart LenovoX1 by power and verify init service is running
@@ -50,6 +51,7 @@ Verify booting LenovoX1
 
     Connect
     Verify service status   service=init.scope
+    [Teardown]   Test Teardown
 
 Verify booting RiscV Polarfire
     [Documentation]    Restart RiscV by power and verify init service is running using serial connection
@@ -63,6 +65,7 @@ Verify booting RiscV Polarfire
         Log To Console  The device started
     END
     Verify init.scope status via serial
+    [Teardown]   Test Teardown
 
 Turn OFF Device
     [Documentation]   Turn off device
@@ -107,11 +110,13 @@ Turn ON Device
 
 *** Keywords ***
 
-Teardown
+Test Teardown
     IF  "${CONNECTION_TYPE}" == "ssh"
         Run Keyword If Test Failed    ssh_keywords.Save log
     ELSE IF  "${CONNECTION_TYPE}" == "serial"
         Run Keyword If Test Failed    serial_keywords.Save log
     END
+
+Teardown
     Close All Connections
     Delete All Ports

@@ -23,10 +23,10 @@ Reboot Device Via Relay
     [Documentation]   Turn off power of device, wait for given amount of seconds and turn on the power
     Open Relay Serial Port    ${RELAY_SERIAL_PORT}
     Log To Console    ${\n}Turning device off...
-    Turn Relay Off    ${RELAY_NUMBER}
+    Turn Relay Off
     Sleep    ${delay}
     Log To Console    Turning device on...
-    Turn Relay On    ${RELAY_NUMBER}
+    Turn Relay On
 
 Reboot LenovoX1
     [Arguments]       ${delay}=20
